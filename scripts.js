@@ -39,3 +39,11 @@ const displayFact = (fact) => {
   const randomFact = await fetchRandomFact();
   displayFact(randomFact);
 })();
+
+// Function to store data in local storage
+const storeFact = (fact) => {
+  const storedFacts =
+    JSON.parse(localStorage.getItem("randomFacts")) || [];
+  storedFacts.push(fact);
+  localStorage.setItem("randomFacts", JSON.stringify(storedFacts));
+};
