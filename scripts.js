@@ -25,6 +25,7 @@ fetchFactBtn.addEventListener("click", async () => {
   const randomFact = await fetchRandomFact();
  if (randomFact) {
     displayFact(randomFact);
+        storeFact(randomFact);
   }});
 
   // Function to display a fact on the page
@@ -38,6 +39,9 @@ const displayFact = (fact) => {
 (async () => {
   const randomFact = await fetchRandomFact();
   displayFact(randomFact);
+   if (randomFact) {
+    storeFact(randomFact);
+  }
 })();
 
 // Function to store data in local storage
@@ -46,4 +50,25 @@ const storeFact = (fact) => {
     JSON.parse(localStorage.getItem("randomFacts")) || [];
   storedFacts.push(fact);
   localStorage.setItem("randomFacts", JSON.stringify(storedFacts));
+    updateStoredFactsUI();
+};
+
+// Function to update the UI with stored facts
+const updateStoredFactsUI = () => {
+  const storedFactsList = document.getElementById("storedFactsList");
+  storedFactsList.innerHTML = "";
+  const storedFacts =
+    JSON.parse(localStorage.getItem("randomFacts")) || [];
+
+  // Display stored facts in reverse order (latest first)
+  storedFacts.reverse().forEach((fact, index) => {
+    const listItem = document.createElement("li");
+    listItem.classList.add("stored-fact");
+
+    const factText = document.createElement("p");
+    factText.textContent = fact.fact;
+
+    listItem.appendChild(factText);
+    storedFactsList.appendChild(listItem);
+  });
 };

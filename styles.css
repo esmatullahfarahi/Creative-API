@@ -56,3 +56,19 @@ body {
     align-items: center;
     margin-top: 10px;
 }
+
+
+.stored-facts-list {
+    list-style-type: none;
+}
+
+.stored-fact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
