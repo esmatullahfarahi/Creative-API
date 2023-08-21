@@ -30,5 +30,12 @@ fetchFactBtn.addEventListener("click", async () => {
   // Function to display a fact on the page
 const displayFact = (fact) => {
   const factDisplay = document.getElementById("factDisplay");
-  factDisplay.textContent = fact ? `Did you know "${fact.fact}"` : "No facts available.";
+  factDisplay.innerHTML = fact ? `<b>Did you know</b> "${fact.fact}"` : "No facts available.";
 };
+
+
+// Fetch and display a random fact when the page loads
+(async () => {
+  const randomFact = await fetchRandomFact();
+  displayFact(randomFact);
+})();
