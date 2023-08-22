@@ -1,6 +1,6 @@
 # Random Fact API
 
-![Random Fact Display App Screenshot](/images/screenshot.png.png)
+![Random Fact Display App Screenshot](/images/screenshot.png)
 
 ## Overview
 
