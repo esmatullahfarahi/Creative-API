@@ -82,7 +82,10 @@ const updateStoredFactsUI = () => {
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.classList.add("delete-button");
-    deleteButton.addEventListener("click", () => deleteFact(index));
+    // Set up a click event listener for the delete button
+    // We use (storedFacts.length - 1 - index) to reverse the index
+    // and match the correct fact in the original order
+    deleteButton.addEventListener("click", () => deleteFact(storedFacts.length - 1 - index));
     listItem.appendChild(deleteButton);
   });
 };
